@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# show_bash_processes.sh
+
+pgrep bash -l
