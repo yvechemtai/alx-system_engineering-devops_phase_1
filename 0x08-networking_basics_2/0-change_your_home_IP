@@ -1,16 +1,14 @@
 #!/usr/bin/env bash
-# Configures an Ubuntu server as follows:
-#   - localhost resolves to 127.0.0.2
-#   - facebook.com resolves to 8.8.8.8
+# Configures an Ubuntu server to modify the IP addresses for localhost and facebook.com.
 
-# Backup the original hosts file
-sudo cp /etc/hosts /etc/hosts.bak
+# Create a backup of the original hosts file
+cp /etc/hosts ~/hosts.new
 
-# Replace localhost entry
-sudo sed -i 's/^127.0.0.1[[:space:]]\+localhost/127.0.0.2 localhost/' /etc/hosts
+# Update the IP address for localhost in the new hosts file
+echo "127.0.0.2		localhost" > ~/hosts.new
 
-# Add facebook.com entry
-echo '8.8.8.8 facebook.com' | sudo tee -a /etc/hosts > /dev/null
+# Add a new entry for facebook.com with the desired IP address
+echo "8.8.8.8		facebook.com" >> ~/hosts.new
 
-# Display success message
-echo "Changes applied successfully."
+# Replace the original hosts file with the modified one
+cp -f ~/hosts.new /etc/hosts
