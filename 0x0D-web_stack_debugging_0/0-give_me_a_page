@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
-# Run Apache as designated container.
+# script to initialize server apache
 
-echo "Hello Holberton" >> /etc/apache2.conf
-service apsche2 strat#!/usr/bin/env bash
-# Run Apache as designated container.
-
-echo "Hello Holberton" >> /etc/apache2.conf
-service apsche2 strat
+/etc/init.d/apache2 start
